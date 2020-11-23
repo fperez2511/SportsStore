@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using ServerApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace ServerApp
 {
@@ -31,9 +32,19 @@ namespace ServerApp
             services.AddDbContext<DataContext>(options => 
                 options.UseSqlServer(connectionString));
 
-            services.AddControllersWithViews();
+            // do not sent null values to save on bandwidth
+            services.AddControllersWithViews()
+                .AddJsonOptions(opts => {
+                    opts.JsonSerializerOptions.IgnoreNullValues = true;
+                });
+
             // not originally here but added to match Freeman's version
             services.AddRazorPages();
+
+            services.AddSwaggerGen(options => {
+                options.SwaggerDoc("v1",
+                    new OpenApiInfo { Title = "SportsStore API", Version = "v1"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +73,12 @@ namespace ServerApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "SportsStore API");
             });
 
             // Managed strategy: To have .NET Core launch and pass previously unhandled requests to Angular.
