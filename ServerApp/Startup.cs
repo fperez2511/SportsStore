@@ -36,7 +36,8 @@ namespace ServerApp
             services.AddControllersWithViews()
                 .AddJsonOptions(opts => {
                     opts.JsonSerializerOptions.IgnoreNullValues = true;
-                });
+                })
+                .AddNewtonsoftJson();
 
             // not originally here but added to match Freeman's version
             services.AddRazorPages();
