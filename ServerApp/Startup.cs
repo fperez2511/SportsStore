@@ -74,6 +74,15 @@ namespace ServerApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // Force sent it to the Home controller when accessing any of the new Angular applications's URLs 
+                //(routes) we just defined in the ClientApp therefore leveraging the Razor view and its associated layout.
+                endpoints.MapControllerRoute(
+                    name: "angular_fallback",
+                    pattern: "{targe:regex(table|detail)}/{*catchall}",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                endpoints.MapRazorPages();
             });
 
             app.UseSwagger();
