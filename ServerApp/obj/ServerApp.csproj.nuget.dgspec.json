@@ -25,10 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.sitefinity.com/nuget": {},
-          "https://nuget.stampinup.com/nuget/stampinup-templates/": {},
-          "https://nuget.stampinup.com/nuget/stampinup/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {

@@ -79,7 +79,8 @@ namespace ServerApp
                 //(routes) we just defined in the ClientApp therefore leveraging the Razor view and its associated layout.
                 endpoints.MapControllerRoute(
                     name: "angular_fallback",
-                    pattern: "{targe:regex(table|detail)}/{*catchall}",
+                    //pattern: "{target:regex(table|detail)}/{*catchall}",
+                    pattern: "{target:regex(store)}/{*catchall}",
                     defaults: new { controller = "Home", action = "Index" });
 
                 endpoints.MapRazorPages();

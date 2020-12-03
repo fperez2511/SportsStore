@@ -68,3 +68,4 @@ C:\Users\FPerez\source\repos\SportsStore\ServerApp\bin\Debug\netcoreapp3.0\Swash
 C:\Users\FPerez\source\repos\SportsStore\ServerApp\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\FPerez\source\repos\SportsStore\ServerApp\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\FPerez\source\repos\SportsStore\ServerApp\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\FPerez\source\repos\SportsStore\ServerApp\bin\Debug\netcoreapp3.0\libman.json
